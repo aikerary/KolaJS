@@ -1,4 +1,13 @@
 import React, { useState } from 'react'
+import { 
+  ChartBarIcon, 
+  FlagIcon, 
+  BookOpenIcon, 
+  ClipboardDocumentListIcon,
+  PlayIcon,
+  UserGroupIcon,
+  ArrowPathIcon
+} from '@heroicons/react/24/outline'
 
 const LearningActivities = () => {
   const [activeActivity, setActiveActivity] = useState(null)
@@ -95,8 +104,14 @@ const LearningActivities = () => {
                         <span className="bg-cola-red text-white px-3 py-1 rounded-full text-sm">
                           {activity.type}
                         </span>
-                        <span className="text-gray-500 text-sm">⏱️ {activity.duration}</span>
-                        <span className="text-gray-500 text-sm">📊 {activity.difficulty}</span>
+                        <span className="text-gray-500 text-sm flex items-center">
+                          <ClipboardDocumentListIcon className="w-4 h-4 mr-1" />
+                          {activity.duration}
+                        </span>
+                        <span className="text-gray-500 text-sm flex items-center">
+                          <ChartBarIcon className="w-4 h-4 mr-1" />
+                          {activity.difficulty}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -124,7 +139,8 @@ const LearningActivities = () => {
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-cola-dark-gray mb-3 flex items-center">
-                        🎯 Objetivos Específicos
+                        <FlagIcon className="w-5 h-5 mr-2 text-cola-red" />
+                        Objetivos Específicos
                       </h4>
                       <ul className="space-y-2">
                         {activity.objectives.map((objective, index) => (
@@ -138,7 +154,8 @@ const LearningActivities = () => {
 
                     <div>
                       <h4 className="font-semibold text-cola-dark-gray mb-3 flex items-center">
-                        📚 Materiales Necesarios
+                        <BookOpenIcon className="w-5 h-5 mr-2 text-cola-red" />
+                        Materiales Necesarios
                       </h4>
                       <ul className="space-y-2">
                         {activity.materials.map((material, index) => (
@@ -153,7 +170,8 @@ const LearningActivities = () => {
 
                   <div>
                     <h4 className="font-semibold text-cola-dark-gray mb-3 flex items-center">
-                      📋 Metodología de Desarrollo
+                      <ClipboardDocumentListIcon className="w-5 h-5 mr-2 text-cola-red" />
+                      Metodología de Desarrollo
                     </h4>
                     <div className="space-y-3">
                       {activity.steps.map((step, index) => (
@@ -176,7 +194,7 @@ const LearningActivities = () => {
         <div className="mt-16 grid md:grid-cols-3 gap-8">
           <div className="card-cola text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🎮</span>
+              <PlayIcon className="w-8 h-8 text-white" />
             </div>
             <h3 className="font-coca-cola text-xl text-cola-dark-gray mb-3">
               Gamificación
@@ -188,7 +206,7 @@ const LearningActivities = () => {
 
           <div className="card-cola text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">👥</span>
+              <UserGroupIcon className="w-8 h-8 text-white" />
             </div>
             <h3 className="font-coca-cola text-xl text-cola-dark-gray mb-3">
               Aprendizaje Colaborativo
@@ -200,7 +218,7 @@ const LearningActivities = () => {
 
           <div className="card-cola text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🔄</span>
+              <ArrowPathIcon className="w-8 h-8 text-white" />
             </div>
             <h3 className="font-coca-cola text-xl text-cola-dark-gray mb-3">
               Feedback Continuo

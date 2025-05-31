@@ -1,4 +1,12 @@
 import React from 'react'
+import { 
+  BookOpenIcon, 
+  PuzzlePieceIcon, 
+  FlagIcon, 
+  BoltIcon, 
+  RocketLaunchIcon, 
+  SparklesIcon 
+} from '@heroicons/react/24/outline'
 
 const LearningObjectives = () => {
   const objectives = [
@@ -6,37 +14,37 @@ const LearningObjectives = () => {
       id: 1,
       title: "Fundamentos de JavaScript",
       description: "Comprender la sintaxis básica, variables, tipos de datos y estructuras de control.",
-      icon: "📚"
+      icon: BookOpenIcon
     },
     {
       id: 2,
       title: "Programación Orientada a Objetos",
       description: "Dominar conceptos de POO, clases, herencia y encapsulamiento en JavaScript.",
-      icon: "🧩"
+      icon: PuzzlePieceIcon
     },
     {
       id: 3,
       title: "Manipulación del DOM",
       description: "Aprender a interactuar dinámicamente con elementos HTML usando JavaScript.",
-      icon: "🎯"
+      icon: FlagIcon
     },
     {
       id: 4,
       title: "Programación Asíncrona",
       description: "Manejar promesas, async/await y realizar peticiones HTTP efectivamente.",
-      icon: "⚡"
+      icon: BoltIcon
     },
     {
       id: 5,
       title: "Frameworks Modernos",
       description: "Introducción a React y desarrollo de aplicaciones web interactivas.",
-      icon: "🚀"
+      icon: RocketLaunchIcon
     },
     {
       id: 6,
       title: "Buenas Prácticas",
       description: "Implementar código limpio, testing y patrones de diseño profesionales.",
-      icon: "✨"
+      icon: SparklesIcon
     }
   ]
 
@@ -62,7 +70,7 @@ const LearningObjectives = () => {
             >
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl">{objective.icon}</span>
+                  <objective.icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="w-8 h-1 bg-cola-red mx-auto mb-4"></div>
               </div>

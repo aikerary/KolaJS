@@ -1,4 +1,15 @@
 import React from 'react'
+import { 
+  BookOpenIcon, 
+  DocumentTextIcon, 
+  GlobeAltIcon, 
+  ComputerDesktopIcon, 
+  ClipboardDocumentListIcon, 
+  AcademicCapIcon,
+  MagnifyingGlassIcon,
+  CalendarIcon,
+  FlagIcon
+} from '@heroicons/react/24/outline'
 
 const References = () => {
   const references = [
@@ -109,13 +120,13 @@ const References = () => {
 
   const getTypeIcon = (type) => {
     switch (type) {
-      case "Libro": return "📚"
-      case "Artículo Académico": return "📄"
-      case "Documentación Web": return "🌐"
-      case "Artículo Web": return "💻"
-      case "Estándar Web": return "📋"
-      case "Curso Online": return "🎓"
-      default: return "📖"
+      case "Libro": return BookOpenIcon
+      case "Artículo Académico": return DocumentTextIcon
+      case "Documentación Web": return GlobeAltIcon
+      case "Artículo Web": return ComputerDesktopIcon
+      case "Estándar Web": return ClipboardDocumentListIcon
+      case "Curso Online": return AcademicCapIcon
+      default: return BookOpenIcon
     }
   }
 
@@ -157,7 +168,7 @@ const References = () => {
                 
                 <div className="flex-grow">
                   <div className="flex items-center space-x-3 mb-3">
-                    <span className="text-2xl">{getTypeIcon(ref.type)}</span>
+                    {React.createElement(getTypeIcon(ref.type), { className: "w-6 h-6 text-cola-red" })}
                     <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getTypeColor(ref.type)}`}>
                       {ref.type}
                     </span>
@@ -203,21 +214,21 @@ const References = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-3xl mb-3">🔍</div>
+              <MagnifyingGlassIcon className="w-12 h-12 mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Verificación</h4>
               <p className="text-red-100 text-sm">
                 Todas las fuentes han sido verificadas y son de acceso público o académico.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-3">📅</div>
+              <CalendarIcon className="w-12 h-12 mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Actualización</h4>
               <p className="text-red-100 text-sm">
                 Las referencias se revisan semestralmente para mantener contenido actualizado.
               </p>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-3">🎯</div>
+              <FlagIcon className="w-12 h-12 mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Relevancia</h4>
               <p className="text-red-100 text-sm">
                 Cada referencia está directamente relacionada con los objetivos de aprendizaje.

@@ -1,4 +1,15 @@
 import React, { useState } from 'react'
+import { 
+  VideoCameraIcon, 
+  BookOpenIcon, 
+  WrenchScrewdriverIcon, 
+  ComputerDesktopIcon,
+  DevicePhoneMobileIcon,
+  FlagIcon,
+  UserGroupIcon,
+  MagnifyingGlassIcon,
+  CalendarIcon
+} from '@heroicons/react/24/outline'
 
 const Resources = () => {
   const [activeCategory, setActiveCategory] = useState('videos')
@@ -102,10 +113,10 @@ const Resources = () => {
   }
 
   const categoryLabels = {
-    videos: { title: "Videos Educativos", icon: "🎥" },
-    articles: { title: "Artículos y Libros", icon: "📚" },
-    tools: { title: "Herramientas", icon: "🛠️" },
-    interactive: { title: "Plataformas Interactivas", icon: "💻" }
+    videos: { title: "Videos Educativos", icon: VideoCameraIcon },
+    articles: { title: "Artículos y Libros", icon: BookOpenIcon },
+    tools: { title: "Herramientas", icon: WrenchScrewdriverIcon },
+    interactive: { title: "Plataformas Interactivas", icon: ComputerDesktopIcon }
   }
 
   return (
@@ -134,7 +145,7 @@ const Resources = () => {
                   : 'bg-cola-light-gray text-cola-dark-gray hover:bg-gray-200'
               }`}
             >
-              <span>{category.icon}</span>
+              <category.icon className="w-5 h-5" />
               <span>{category.title}</span>
             </button>
           ))}
@@ -239,21 +250,21 @@ const Resources = () => {
             <h3 className="font-coca-cola text-2xl mb-6">RECURSOS ADICIONALES</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl mb-3">📱</div>
+                <DevicePhoneMobileIcon className="w-12 h-12 mx-auto mb-3" />
                 <h4 className="font-semibold mb-2">Apps Móviles</h4>
                 <p className="text-red-100 text-sm">
                   SoloLearn, Grasshopper, Programming Hero
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">🎯</div>
+                <FlagIcon className="w-12 h-12 mx-auto mb-3" />
                 <h4 className="font-semibold mb-2">Práctica de Código</h4>
                 <p className="text-red-100 text-sm">
                   HackerRank, Codewars, Exercism
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-3xl mb-3">👥</div>
+                <UserGroupIcon className="w-12 h-12 mx-auto mb-3" />
                 <h4 className="font-semibold mb-2">Comunidades</h4>
                 <p className="text-red-100 text-sm">
                   Stack Overflow, Reddit r/javascript, Discord
