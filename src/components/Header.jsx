@@ -17,9 +17,11 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-              <span className="text-cola-red font-coca-cola text-xl font-bold">K</span>
-            </div>
+            <img 
+              src="/kolajs.svg" 
+              alt="Kola JS Logo" 
+              className="w-16 h-16 object-contain"
+            />
             <div>
               <h1 className="text-white font-coca-cola text-2xl tracking-wide">KOLA JS</h1>
               <p className="text-red-100 text-sm">Aprende JavaScript con Sabor</p>
