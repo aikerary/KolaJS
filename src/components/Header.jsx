@@ -20,7 +20,7 @@ const Header = () => {
             <img 
               src="/kolajs.svg" 
               alt="Kola JS Logo" 
-              className="w-16 h-16 object-contain"
+              className="w-24 h-24 object-contain"
             />
             <div>
               <h1 className="text-white font-coca-cola text-2xl tracking-wide">KOLA JS</h1>
