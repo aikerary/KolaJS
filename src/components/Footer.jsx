@@ -8,7 +8,12 @@ const Footer = () => {
   }
 
   return (
-    <footer className="gradient-cola text-white">
+    <footer 
+      className="gradient-cola text-white relative"
+      style={{
+        zIndex: 10,
+      }}
+    >
       <div className="section-container py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and Description */}

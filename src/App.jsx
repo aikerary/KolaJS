@@ -8,6 +8,7 @@ import LearningActivities from './components/LearningActivities'
 import Resources from './components/Resources'
 import References from './components/References'
 import Footer from './components/Footer'
+import LiquidWaveEffect from './components/LiquidWaveEffect'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Resources />
       <References />
       <Footer />
+      <LiquidWaveEffect />    
     </div>
   )
 }

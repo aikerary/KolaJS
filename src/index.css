@@ -29,4 +29,119 @@
   .gradient-cola {
     background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
   }
+  
+  /* Animaciones para el efecto de refresco */
+  @keyframes bubbleRise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-200px) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes liquidWave {
+    0%, 100% {
+      transform: translateX(-50%) scale(1, 1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.1, 0.9);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bubbleFloat {
+    0% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-15px) scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-5px) scale(0.9);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes gentleWave {
+    0%, 100% {
+      transform: translateX(0) scale(1, 1);
+    }
+    25% {
+      transform: translateX(-5px) scale(1.02, 0.98);
+    }
+    75% {
+      transform: translateX(5px) scale(0.98, 1.02);
+    }
+  }
+  
+  /* Liquid Wave Effect Styles */
+  @keyframes liquidFlow {
+    0%, 100% {
+      transform: translateX(0) scaleY(1);
+    }
+    25% {
+      transform: translateX(10px) scaleY(1.02);
+    }
+    50% {
+      transform: translateX(-5px) scaleY(0.98);
+    }
+    75% {
+      transform: translateX(8px) scaleY(1.01);
+    }
+  }
+
+  @keyframes bubbleRise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-15px) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.7;
+    }
+  }
+
+  .liquid-canvas {
+    filter: contrast(1.1) saturate(1.2);
+  }
+
+  .bubble-rise {
+    animation: bubbleRise 4s infinite linear;
+  }
+  
+  .liquid-wave {
+    animation: liquidWave 3s ease-in-out infinite;
+  }
+  
+  .float-animation {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .bubble-float {
+    animation: bubbleFloat 3s ease-in-out infinite;
+  }
+
+  .gentle-wave {
+    animation: gentleWave 8s ease-in-out infinite;
+  }
 }
