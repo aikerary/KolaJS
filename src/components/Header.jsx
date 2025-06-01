@@ -27,20 +27,20 @@ const Header = () => {
       <div className="section-container">
         <div className={`flex items-center justify-between ${isScrolled ? 'py-2' : 'py-4'} transition-all duration-300`}>
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1 xs:space-x-2 sm:space-x-3">
             <img 
               src={isScrolled ? "/kolajs-inverted.svg" : "/kolajs.svg"}
               alt="Kola JS Logo" 
-              className={`${isScrolled ? 'w-12 h-12' : 'w-24 h-24'} object-contain transition-all duration-300`}
+              className={`${isScrolled ? 'w-6 h-6 xs:w-8 xs:h-8 sm:w-12 sm:h-12' : 'w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24'} object-contain transition-all duration-300`}
             />
-            <div>
-              <h1 className={`${isScrolled ? 'text-cola-red' : 'text-white'} font-coca-cola text-2xl tracking-wide transition-colors duration-300`}>KOLA JS</h1>
-              <p className={`${isScrolled ? 'text-cola-dark-red' : 'text-red-100'} text-sm transition-colors duration-300`}>Aprende JavaScript con Sabor</p>
+            <div className="min-w-0 flex-1">
+              <h1 className={`${isScrolled ? 'text-cola-red' : 'text-white'} font-coca-cola text-sm xs:text-lg sm:text-xl md:text-2xl tracking-wide transition-colors duration-300 leading-tight`}>KOLA JS</h1>
+              <p className={`${isScrolled ? 'text-cola-dark-red' : 'text-red-100'} text-xs xs:text-xs sm:text-sm transition-colors duration-300 leading-tight hidden xs:block`}>Aprende JavaScript con Sabor</p>
             </div>
           </div>
 
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             <button 
               onClick={() => scrollToSection('inicio')}
               className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium`}
@@ -82,9 +82,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden ${isScrolled ? 'text-cola-red' : 'text-white'} focus:outline-none transition-colors duration-300`}
+            className={`lg:hidden ${isScrolled ? 'text-cola-red' : 'text-white'} focus:outline-none transition-colors duration-300 p-2 -m-2`}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 xs:w-6 xs:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -96,41 +96,41 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className={`md:hidden py-4 ${isScrolled ? 'border-t border-cola-red' : 'border-t border-red-400'}`}>
-            <nav className="flex flex-col space-y-3">
+          <div className={`lg:hidden py-3 xs:py-4 ${isScrolled ? 'border-t border-cola-red' : 'border-t border-red-400'}`}>
+            <nav className="flex flex-col space-y-2 xs:space-y-3">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Inicio
               </button>
               <button 
                 onClick={() => scrollToSection('sobre-mi')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Sobre Mí
               </button>
               <button 
                 onClick={() => scrollToSection('objetivos')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Objetivos
               </button>
               <button 
                 onClick={() => scrollToSection('evaluacion')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Evaluación
               </button>
               <button 
                 onClick={() => scrollToSection('actividades')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Actividades
               </button>
               <button 
                 onClick={() => scrollToSection('recursos')}
-                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left`}
+                className={`${isScrolled ? 'text-cola-red hover:text-cola-dark-red' : 'text-white hover:text-red-100'} transition-colors duration-300 font-medium text-left py-2 px-1 text-sm xs:text-base`}
               >
                 Recursos
               </button>

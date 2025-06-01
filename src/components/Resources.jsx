@@ -134,66 +134,67 @@ const Resources = () => {
         </div>
 
         {/* Category Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 xs:gap-3 md:gap-4 mb-8 xs:mb-12">
           {Object.entries(categoryLabels).map(([key, category]) => (
             <button
               key={key}
               onClick={() => setActiveCategory(key)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              className={`flex items-center space-x-1 xs:space-x-2 px-3 xs:px-4 md:px-6 py-2 xs:py-3 rounded-lg font-semibold transition-all duration-300 text-xs xs:text-sm md:text-base ${
                 activeCategory === key
                   ? 'bg-cola-red text-white shadow-lg transform scale-105'
                   : 'bg-cola-light-gray text-cola-dark-gray hover:bg-gray-200'
               }`}
             >
-              <category.icon className="w-5 h-5" />
-              <span>{category.title}</span>
+              <category.icon className="w-4 h-4 xs:w-5 xs:h-5" />
+              <span className="break-words">{category.title}</span>
             </button>
           ))}
         </div>
 
         {/* Resources Content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 md:gap-8 min-w-0">
           {resources[activeCategory].map((resource, index) => (
-            <div key={index} className="card-cola group hover:shadow-2xl transition-all duration-300">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="font-coca-cola text-lg text-cola-dark-gray group-hover:text-cola-red transition-colors">
+            <div key={index} className="card-cola group hover:shadow-2xl transition-all duration-300 overflow-hidden min-w-0 max-w-full">
+              <div className="flex items-start justify-between mb-3 xs:mb-4 gap-2 min-w-0">
+                <h3 className="font-coca-cola text-sm xs:text-base lg:text-lg text-cola-dark-gray group-hover:text-cola-red transition-colors leading-tight break-words min-w-0 flex-1 pr-2 overflow-wrap-anywhere">
                   {resource.title}
                 </h3>
                 <a
                   href={resource.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cola-red hover:text-cola-dark-red transition-colors"
+                  className="text-cola-red hover:text-cola-dark-red transition-colors flex-shrink-0 p-1 -m-1 touch-target"
+                  title={`Visitar: ${resource.url}`}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
               </div>
 
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+              <p className="text-gray-600 text-xs xs:text-sm mb-3 xs:mb-4 leading-relaxed break-words overflow-wrap-anywhere min-w-0">
                 {resource.description}
               </p>
 
-              <div className="space-y-3">
+              <div className="space-y-2 xs:space-y-3 overflow-hidden min-w-0">
                 {resource.author && (
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Autor:</span>
-                    <span className="text-sm text-gray-600">{resource.author}</span>
+                  <div className="flex items-start space-x-2 min-w-0">
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Autor:</span>
+                    <span className="text-xs xs:text-sm text-gray-600 break-words min-w-0 leading-tight overflow-wrap-anywhere">{resource.author}</span>
                   </div>
                 )}
 
                 {resource.duration && (
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Duración:</span>
-                    <span className="text-sm text-gray-600">{resource.duration}</span>
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Duración:</span>
+                    <span className="text-xs xs:text-sm text-gray-600 flex-shrink-0">{resource.duration}</span>
                   </div>
                 )}
 
                 {resource.level && (
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Nivel:</span>
-                    <span className={`text-sm px-2 py-1 rounded-full ${
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Nivel:</span>
+                    <span className={`text-xs xs:text-sm px-2 py-1 rounded-full flex-shrink-0 ${
                       resource.level === 'Principiante' ? 'bg-green-100 text-green-700' :
                       resource.level === 'Intermedio' ? 'bg-yellow-100 text-yellow-700' :
                       'bg-red-100 text-red-700'
@@ -204,39 +205,49 @@ const Resources = () => {
                 )}
 
                 {resource.type && (
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Tipo:</span>
-                    <span className="text-sm text-gray-600">{resource.type}</span>
+                  <div className="flex items-start space-x-2 min-w-0">
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Tipo:</span>
+                    <span className="text-xs xs:text-sm text-gray-600 break-words-safe min-w-0 leading-tight">{resource.type}</span>
                   </div>
                 )}
 
                 {resource.category && (
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Categoría:</span>
-                    <span className="text-sm text-gray-600">{resource.category}</span>
+                  <div className="flex items-start space-x-2 min-w-0">
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Categoría:</span>
+                    <span className="text-xs xs:text-sm text-gray-600 break-words-safe min-w-0 leading-tight">{resource.category}</span>
                   </div>
                 )}
 
                 {resource.difficulty && (
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs font-semibold text-cola-red">Dificultad:</span>
-                    <span className="text-sm text-gray-600">{resource.difficulty}</span>
+                  <div className="flex items-start space-x-2 min-w-0">
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">Dificultad:</span>
+                    <span className="text-xs xs:text-sm text-gray-600 break-words-safe min-w-0 leading-tight">{resource.difficulty}</span>
                   </div>
                 )}
 
                 {resource.features && (
-                  <div>
+                  <div className="overflow-hidden">
                     <span className="text-xs font-semibold text-cola-red mb-2 block">Características:</span>
                     <div className="flex flex-wrap gap-1">
                       {resource.features.map((feature, featureIndex) => (
                         <span 
                           key={featureIndex}
-                          className="bg-cola-light-gray text-gray-700 px-2 py-1 rounded text-xs"
+                          className="bg-cola-light-gray text-gray-700 px-2 py-1 rounded text-xs break-words-safe leading-tight"
                         >
                           {feature}
                         </span>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* URL Display - Solo para pantallas más grandes o si es importante */}
+                {resource.url && (
+                  <div className="hidden sm:flex items-start space-x-2 min-w-0 mt-3 pt-3 border-t border-gray-100">
+                    <span className="text-xs font-semibold text-cola-red flex-shrink-0">URL:</span>
+                    <span className="text-xs text-gray-500 break-all leading-tight font-mono bg-gray-50 px-2 py-1 rounded min-w-0 max-w-full overflow-wrap-anywhere">
+                      {resource.url.length > 40 ? `${resource.url.substring(0, 37)}...` : resource.url}
+                    </span>
                   </div>
                 )}
               </div>
@@ -245,28 +256,28 @@ const Resources = () => {
         </div>
 
         {/* Additional Resources Section */}
-        <div className="mt-16 card-cola bg-gradient-to-r from-cola-red to-cola-dark-red text-white">
+        <div className="mt-12 xs:mt-16 card-cola bg-gradient-to-r from-cola-red to-cola-dark-red text-white">
           <div className="text-center">
-            <h3 className="font-coca-cola text-2xl mb-6">RECURSOS ADICIONALES</h3>
-            <div className="grid md:grid-cols-3 gap-6">
+            <h3 className="font-coca-cola text-xl xs:text-2xl mb-4 xs:mb-6">RECURSOS ADICIONALES</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 xs:gap-6">
               <div className="text-center">
-                <DevicePhoneMobileIcon className="w-12 h-12 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Apps Móviles</h4>
-                <p className="text-red-100 text-sm">
+                <DevicePhoneMobileIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3" />
+                <h4 className="font-semibold mb-2 text-sm xs:text-base">Apps Móviles</h4>
+                <p className="text-red-100 text-xs xs:text-sm break-words">
                   SoloLearn, Grasshopper, Programming Hero
                 </p>
               </div>
               <div className="text-center">
-                <FlagIcon className="w-12 h-12 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Práctica de Código</h4>
-                <p className="text-red-100 text-sm">
+                <FlagIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3" />
+                <h4 className="font-semibold mb-2 text-sm xs:text-base">Práctica de Código</h4>
+                <p className="text-red-100 text-xs xs:text-sm break-words">
                   HackerRank, Codewars, Exercism
                 </p>
               </div>
               <div className="text-center">
-                <UserGroupIcon className="w-12 h-12 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Comunidades</h4>
-                <p className="text-red-100 text-sm">
+                <UserGroupIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3" />
+                <h4 className="font-semibold mb-2 text-sm xs:text-base">Comunidades</h4>
+                <p className="text-red-100 text-xs xs:text-sm break-words">
                   Stack Overflow, Reddit r/javascript, Discord
                 </p>
               </div>

@@ -19,11 +19,11 @@
   }
   
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8;
   }
   
   .card-cola {
-    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300;
+    @apply bg-white rounded-xl shadow-lg p-4 xs:p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300;
   }
   
   .gradient-cola {
@@ -249,6 +249,165 @@
     
     html {
       scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  /* Mejoras para pantallas muy pequeñas */
+  @media (max-width: 374px) {
+    .section-container {
+      @apply px-2 !important;
+    }
+    
+    .card-cola {
+      @apply p-3 rounded-lg !important;
+    }
+    
+    /* Específico para Resources - Evitar overflow en títulos largos */
+    .resource-title {
+      word-break: break-word;
+      hyphens: auto;
+      max-width: 100%;
+      overflow: hidden;
+      line-height: 1.2;
+    }
+    
+    /* Botones de categoría más compactos */
+    .category-button {
+      @apply px-2 py-2 text-xs !important;
+    }
+    
+    /* Tarjetas de recursos más compactas */
+    .resource-card {
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+    
+    /* Texto en tarjetas */
+    .resource-text {
+      overflow: hidden;
+      word-break: break-word;
+      hyphens: auto;
+    }
+  }
+  
+  /* Optimizaciones para touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Utilidades responsivas adicionales */
+  .text-responsive-xs {
+    @apply text-xs;
+  }
+  
+  @screen xs {
+    .text-responsive-xs {
+      @apply text-sm;
+    }
+  }
+  
+  /* Utilidades para evitar overflow de texto */
+  .break-words-safe {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .text-ellipsis-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Para URLs y texto largo que necesita romper */
+  .break-all-safe {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    hyphens: none;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Para contenedores que necesitan evitar overflow */
+  .overflow-safe {
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  /* Estilos específicos para tarjetas de recursos */
+  .resource-card-content {
+    min-width: 0;
+    overflow: hidden;
+  }
+  
+  .resource-metadata {
+    min-width: 0;
+    word-break: break-word;
+    overflow: hidden;
+  }
+  
+  .resource-url-display {
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Para títulos largos en tarjetas */
+  .resource-title-safe {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    overflow: hidden;
+    line-height: 1.3;
+    max-width: 100%;
+  }
+  
+  /* Nuevas utilidades para manejo avanzado de overflow */
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  
+  .container-safe {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .grid-safe {
+    min-width: 0;
+    display: grid;
+  }
+  
+  .flex-safe {
+    min-width: 0;
+    display: flex;
+  }
+  
+  /* Card system con límites garantizados */
+  .card-cola-safe {
+    @apply bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden min-w-0 max-w-full;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 375px) {
+    .card-cola-safe {
+      padding: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .card-cola-safe {
+      padding: 1.5rem;
     }
   }
 }

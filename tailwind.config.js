@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+      },
       colors: {
         'cola-red': '#DC143C',
         'cola-dark-red': '#B22222',

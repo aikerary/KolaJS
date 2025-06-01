@@ -143,33 +143,33 @@ const References = () => {
   }
 
   return (
-    <section id="referencias" className="py-20 bg-cola-light-gray">
+    <section id="referencias" className="py-20 bg-cola-light-gray overflow-hidden">
       <div className="section-container">
         <div className="text-center mb-16">
-          <h2 className="font-coca-cola text-4xl md:text-5xl text-cola-dark-gray mb-4">
+          <h2 className="font-coca-cola text-4xl md:text-5xl text-cola-dark-gray mb-4 break-words">
             REFERENCIAS BIBLIOGRÁFICAS
           </h2>
           <div className="w-24 h-1 bg-cola-red mx-auto mb-8"></div>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto break-words">
             Fuentes académicas y profesionales que respaldan el contenido de esta unidad didáctica, 
             siguiendo estándares de citación académica.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 overflow-hidden">
           {references.map((ref) => (
-            <div key={ref.id} className="card-cola">
-              <div className="flex items-start space-x-4">
+            <div key={ref.id} className="card-cola-safe overflow-hidden">
+              <div className="flex items-start space-x-3 xs:space-x-4 min-w-0 overflow-hidden">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold">{ref.id}</span>
+                  <div className="w-10 h-10 xs:w-12 xs:h-12 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm xs:text-base">{ref.id}</span>
                   </div>
                 </div>
                 
-                <div className="flex-grow">
-                  <div className="flex items-center space-x-3 mb-3">
-                    {React.createElement(getTypeIcon(ref.type), { className: "w-6 h-6 text-cola-red" })}
-                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getTypeColor(ref.type)}`}>
+                <div className="flex-grow min-w-0 overflow-hidden">
+                  <div className="flex items-center gap-2 xs:gap-3 mb-3 min-w-0 flex-wrap">
+                    {React.createElement(getTypeIcon(ref.type), { className: "w-5 h-5 xs:w-6 xs:h-6 text-cola-red flex-shrink-0" })}
+                    <span className={`px-2 xs:px-3 py-1 rounded-full text-xs xs:text-sm font-semibold ${getTypeColor(ref.type)} flex-shrink-0 break-words max-w-full`}>
                       {ref.type}
                     </span>
                     {ref.url && (
@@ -177,23 +177,23 @@ const References = () => {
                         href={ref.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-cola-red hover:text-cola-dark-red transition-colors"
+                        className="text-cola-red hover:text-cola-dark-red transition-colors flex-shrink-0 p-1 -m-1"
                         title="Acceder al recurso"
                       >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 xs:w-5 xs:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                       </a>
                     )}
                   </div>
                   
-                  <div className="mb-3">
-                    <p className="text-gray-800 leading-relaxed font-medium">
+                  <div className="mb-3 min-w-0 overflow-hidden">
+                    <p className="text-gray-800 leading-relaxed font-medium break-words overflow-wrap-anywhere hyphens-auto text-sm xs:text-base">
                       {formatReference(ref)}
                     </p>
                   </div>
                   
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-xs xs:text-sm leading-relaxed break-words overflow-wrap-anywhere hyphens-auto">
                     {ref.description}
                   </p>
                 </div>
@@ -203,34 +203,34 @@ const References = () => {
         </div>
 
         {/* Citation Guidelines */}
-        <div className="mt-16 card-cola bg-gradient-to-r from-cola-red to-cola-dark-red text-white">
-          <div className="text-center mb-8">
-            <h3 className="font-coca-cola text-2xl mb-4">NORMAS DE CITACIÓN</h3>
-            <p className="text-red-100 leading-relaxed">
+        <div className="mt-12 xs:mt-16 card-cola-safe bg-gradient-to-r from-cola-red to-cola-dark-red text-white overflow-hidden">
+          <div className="text-center mb-6 xs:mb-8 overflow-hidden">
+            <h3 className="font-coca-cola text-xl xs:text-2xl mb-3 xs:mb-4 break-words">NORMAS DE CITACIÓN</h3>
+            <p className="text-red-100 leading-relaxed text-sm xs:text-base break-words overflow-wrap-anywhere">
               Todas las referencias siguen el formato APA (American Psychological Association) 
               7ª edición, asegurando consistencia y rigor académico.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <MagnifyingGlassIcon className="w-12 h-12 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Verificación</h4>
-              <p className="text-red-100 text-sm">
+          <div className="grid gap-4 xs:gap-6 md:grid-cols-3 overflow-hidden">
+            <div className="text-center overflow-hidden">
+              <MagnifyingGlassIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3 flex-shrink-0" />
+              <h4 className="font-semibold mb-1 xs:mb-2 text-sm xs:text-base break-words">Verificación</h4>
+              <p className="text-red-100 text-xs xs:text-sm leading-relaxed break-words overflow-wrap-anywhere">
                 Todas las fuentes han sido verificadas y son de acceso público o académico.
               </p>
             </div>
-            <div className="text-center">
-              <CalendarIcon className="w-12 h-12 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Actualización</h4>
-              <p className="text-red-100 text-sm">
+            <div className="text-center overflow-hidden">
+              <CalendarIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3 flex-shrink-0" />
+              <h4 className="font-semibold mb-1 xs:mb-2 text-sm xs:text-base break-words">Actualización</h4>
+              <p className="text-red-100 text-xs xs:text-sm leading-relaxed break-words overflow-wrap-anywhere">
                 Las referencias se revisan semestralmente para mantener contenido actualizado.
               </p>
             </div>
-            <div className="text-center">
-              <FlagIcon className="w-12 h-12 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Relevancia</h4>
-              <p className="text-red-100 text-sm">
+            <div className="text-center overflow-hidden">
+              <FlagIcon className="w-10 h-10 xs:w-12 xs:h-12 mx-auto mb-2 xs:mb-3 flex-shrink-0" />
+              <h4 className="font-semibold mb-1 xs:mb-2 text-sm xs:text-base break-words">Relevancia</h4>
+              <p className="text-red-100 text-xs xs:text-sm leading-relaxed break-words overflow-wrap-anywhere">
                 Cada referencia está directamente relacionada con los objetivos de aprendizaje.
               </p>
             </div>
@@ -238,8 +238,8 @@ const References = () => {
         </div>
 
         {/* Additional Note */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-600 text-sm">
+        <div className="mt-6 xs:mt-8 text-center overflow-hidden">
+          <p className="text-gray-600 text-xs xs:text-sm break-words overflow-wrap-anywhere">
             <strong>Nota:</strong> Para acceder a recursos académicos con restricciones, 
             consulte con la biblioteca de su institución educativa.
           </p>

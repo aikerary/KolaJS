@@ -84,38 +84,38 @@ const LearningActivities = () => {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 min-w-0">
           {activities.map((activity) => (
-            <div key={activity.id} className="card-cola">
+            <div key={activity.id} className="card-cola min-w-0 max-w-full overflow-hidden">
               <div 
-                className="cursor-pointer"
+                className="cursor-pointer min-w-0"
                 onClick={() => toggleActivity(activity.id)}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-lg flex items-center justify-center">
+                <div className="flex items-center justify-between mb-4 min-w-0 gap-4">
+                  <div className="flex items-center space-x-4 min-w-0 flex-1">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cola-red to-cola-dark-red rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold">{activity.id}</span>
                     </div>
-                    <div>
-                      <h3 className="font-coca-cola text-xl text-cola-dark-gray">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-coca-cola text-xl text-cola-dark-gray break-words overflow-wrap-anywhere leading-tight">
                         {activity.title}
                       </h3>
-                      <div className="flex items-center space-x-4 mt-1">
-                        <span className="bg-cola-red text-white px-3 py-1 rounded-full text-sm">
+                      <div className="flex items-center space-x-4 mt-1 flex-wrap gap-y-1">
+                        <span className="bg-cola-red text-white px-3 py-1 rounded-full text-sm flex-shrink-0">
                           {activity.type}
                         </span>
-                        <span className="text-gray-500 text-sm flex items-center">
+                        <span className="text-gray-500 text-sm flex items-center flex-shrink-0">
                           <ClipboardDocumentListIcon className="w-4 h-4 mr-1" />
                           {activity.duration}
                         </span>
-                        <span className="text-gray-500 text-sm flex items-center">
+                        <span className="text-gray-500 text-sm flex items-center flex-shrink-0">
                           <ChartBarIcon className="w-4 h-4 mr-1" />
                           {activity.difficulty}
                         </span>
                       </div>
                     </div>
                   </div>
-                  <button className="text-cola-red hover:text-cola-dark-red transition-colors">
+                  <button className="text-cola-red hover:text-cola-dark-red transition-colors flex-shrink-0">
                     <svg 
                       className={`w-6 h-6 transition-transform duration-300 ${
                         activeActivity === activity.id ? 'rotate-180' : ''
@@ -129,24 +129,24 @@ const LearningActivities = () => {
                   </button>
                 </div>
                 
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed break-words overflow-wrap-anywhere min-w-0">
                   {activity.description}
                 </p>
               </div>
 
               {activeActivity === activity.id && (
-                <div className="mt-8 grid md:grid-cols-2 gap-8 border-t border-gray-200 pt-8">
-                  <div className="space-y-6">
-                    <div>
+                <div className="mt-8 grid md:grid-cols-2 gap-8 border-t border-gray-200 pt-8 min-w-0">
+                  <div className="space-y-6 min-w-0">
+                    <div className="min-w-0">
                       <h4 className="font-semibold text-cola-dark-gray mb-3 flex items-center">
-                        <FlagIcon className="w-5 h-5 mr-2 text-cola-red" />
+                        <FlagIcon className="w-5 h-5 mr-2 text-cola-red flex-shrink-0" />
                         Objetivos Específicos
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-2 min-w-0">
                         {activity.objectives.map((objective, index) => (
-                          <li key={index} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-cola-red rounded-full mt-2"></div>
-                            <span className="text-gray-600">{objective}</span>
+                          <li key={index} className="flex items-start space-x-3 min-w-0">
+                            <div className="w-2 h-2 bg-cola-red rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-600 break-words overflow-wrap-anywhere min-w-0">{objective}</span>
                           </li>
                         ))}
                       </ul>
