@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bebas Neue", sans-serif;
   }
 }
 
@@ -17,19 +22,19 @@
   .btn-cola {
     @apply bg-cola-red text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-cola-dark-red transform hover:scale-105 shadow-lg;
   }
-  
+
   .section-container {
     @apply max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8;
   }
-  
+
   .card-cola {
     @apply bg-white rounded-xl shadow-lg p-4 xs:p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300;
   }
-  
+
   .gradient-cola {
-    background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+    background: linear-gradient(135deg, #dc143c 0%, #b22222 100%);
   }
-  
+
   /* Animaciones para el efecto de refresco */
   @keyframes bubbleRise {
     0% {
@@ -44,18 +49,20 @@
       opacity: 0;
     }
   }
-  
+
   @keyframes liquidWave {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(-50%) scale(1, 1);
     }
     50% {
       transform: translateX(-50%) scale(1.1, 0.9);
     }
   }
-  
+
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -79,7 +86,8 @@
   }
 
   @keyframes gentleWave {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(0) scale(1, 1);
     }
     25% {
@@ -89,10 +97,11 @@
       transform: translateX(5px) scale(0.98, 1.02);
     }
   }
-  
+
   /* Liquid Wave Effect Styles */
   @keyframes liquidFlow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(0) scaleY(1);
     }
     25% {
@@ -128,11 +137,11 @@
   .bubble-rise {
     animation: bubbleRise 4s infinite linear;
   }
-  
+
   .liquid-wave {
     animation: liquidWave 3s ease-in-out infinite;
   }
-  
+
   .float-animation {
     animation: float 2s ease-in-out infinite;
   }
@@ -146,7 +155,7 @@
   }
 
   /* Custom KolaJS Scrollbar - Cross-browser compatible */
-  
+
   /* Webkit browsers (Chrome, Safari, Edge) */
   ::-webkit-scrollbar {
     width: 12px;
@@ -160,7 +169,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #DC143C 0%, #B22222 50%, #8B0000 100%);
+    background: linear-gradient(135deg, #dc143c 0%, #b22222 50%, #8b0000 100%);
     border-radius: 10px;
     border: 2px solid #f8f9fa;
     box-shadow: 0 2px 4px rgba(220, 20, 60, 0.3);
@@ -168,13 +177,13 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #FF1744 0%, #DC143C 50%, #B22222 100%);
+    background: linear-gradient(135deg, #ff1744 0%, #dc143c 50%, #b22222 100%);
     box-shadow: 0 4px 8px rgba(220, 20, 60, 0.4);
     transform: scale(1.05);
   }
 
   ::-webkit-scrollbar-thumb:active {
-    background: linear-gradient(135deg, #B22222 0%, #8B0000 50%, #691515 100%);
+    background: linear-gradient(135deg, #b22222 0%, #8b0000 50%, #691515 100%);
   }
 
   ::-webkit-scrollbar-corner {
@@ -184,12 +193,12 @@
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #DC143C #f8f9fa;
+    scrollbar-color: #dc143c #f8f9fa;
   }
 
   html {
     scrollbar-width: auto;
-    scrollbar-color: #DC143C #f8f9fa;
+    scrollbar-color: #dc143c #f8f9fa;
   }
 
   /* Enhanced scrollbar for better UX */
@@ -200,7 +209,7 @@
   /* Custom scrollbar for specific containers if needed */
   .custom-scroll {
     scrollbar-width: thin;
-    scrollbar-color: #DC143C #f8f9fa;
+    scrollbar-color: #dc143c #f8f9fa;
   }
 
   .custom-scroll::-webkit-scrollbar {
@@ -213,13 +222,13 @@
   }
 
   .custom-scroll::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+    background: linear-gradient(135deg, #dc143c 0%, #b22222 100%);
     border-radius: 6px;
     border: 1px solid rgba(248, 249, 250, 0.5);
   }
 
   .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #FF1744 0%, #DC143C 100%);
+    background: linear-gradient(135deg, #ff1744 0%, #dc143c 100%);
   }
 
   /* Smooth scrolling behavior */
@@ -229,7 +238,8 @@
 
   /* Scrollbar animation for liquid effect */
   @keyframes scrollbarPulse {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 2px 4px rgba(220, 20, 60, 0.3);
     }
     50% {
@@ -246,7 +256,7 @@
     ::-webkit-scrollbar-thumb {
       animation: none;
     }
-    
+
     html {
       scroll-behavior: auto;
     }
@@ -259,11 +269,11 @@
     .section-container {
       @apply px-2 !important;
     }
-    
+
     .card-cola {
       @apply p-3 rounded-lg !important;
     }
-    
+
     /* Específico para Resources - Evitar overflow en títulos largos */
     .resource-title {
       word-break: break-word;
@@ -272,18 +282,18 @@
       overflow: hidden;
       line-height: 1.2;
     }
-    
+
     /* Botones de categoría más compactos */
     .category-button {
       @apply px-2 py-2 text-xs !important;
     }
-    
+
     /* Tarjetas de recursos más compactas */
     .resource-card {
       overflow: hidden;
       word-wrap: break-word;
     }
-    
+
     /* Texto en tarjetas */
     .resource-text {
       overflow: hidden;
@@ -291,24 +301,24 @@
       hyphens: auto;
     }
   }
-  
+
   /* Optimizaciones para touch targets */
   .touch-target {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Utilidades responsivas adicionales */
   .text-responsive-xs {
     @apply text-xs;
   }
-  
+
   @screen xs {
     .text-responsive-xs {
       @apply text-sm;
     }
   }
-  
+
   /* Utilidades para evitar overflow de texto */
   .break-words-safe {
     word-break: break-word;
@@ -317,7 +327,7 @@
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   .text-ellipsis-multiline {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -325,7 +335,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   /* Para URLs y texto largo que necesita romper */
   .break-all-safe {
     word-break: break-all;
@@ -334,33 +344,33 @@
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   /* Para contenedores que necesitan evitar overflow */
   .overflow-safe {
     overflow: hidden;
     word-wrap: break-word;
     max-width: 100%;
   }
-  
+
   /* Estilos específicos para tarjetas de recursos */
   .resource-card-content {
     min-width: 0;
     overflow: hidden;
   }
-  
+
   .resource-metadata {
     min-width: 0;
     word-break: break-word;
     overflow: hidden;
   }
-  
+
   .resource-url-display {
     word-break: break-all;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  
+
   /* Para títulos largos en tarjetas */
   .resource-title-safe {
     word-break: break-word;
@@ -370,41 +380,41 @@
     line-height: 1.3;
     max-width: 100%;
   }
-  
+
   /* Nuevas utilidades para manejo avanzado de overflow */
   .overflow-wrap-anywhere {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-  
+
   .container-safe {
     min-width: 0;
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   .grid-safe {
     min-width: 0;
     display: grid;
   }
-  
+
   .flex-safe {
     min-width: 0;
     display: flex;
   }
-  
+
   /* Card system con límites garantizados */
   .card-cola-safe {
     @apply bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden min-w-0 max-w-full;
     padding: 1rem;
   }
-  
+
   @media (min-width: 375px) {
     .card-cola-safe {
       padding: 1.25rem;
     }
   }
-  
+
   @media (min-width: 768px) {
     .card-cola-safe {
       padding: 1.5rem;
