@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import QuizSection from './QuizSection'
 
 const EvaluationStrategies = () => {
   const [activeTab, setActiveTab] = useState('formative')
@@ -86,7 +87,7 @@ const EvaluationStrategies = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-cola-light-gray rounded-lg p-2 flex">
+          <div className="bg-cola-light-gray rounded-lg p-2 flex flex-wrap">
             <button
               onClick={() => setActiveTab('formative')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
@@ -107,45 +108,63 @@ const EvaluationStrategies = () => {
             >
               Evaluación Sumativa
             </button>
+            <button
+              onClick={() => setActiveTab('interactive')}
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                activeTab === 'interactive'
+                  ? 'bg-cola-red text-white shadow-lg'
+                  : 'text-cola-dark-gray hover:bg-white'
+              }`}
+            >
+              Quizzes Interactivos
+            </button>
           </div>
         </div>
 
         {/* Evaluation Activities */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {evaluationActivities[activeTab].map((activity, index) => (
-            <div key={index} className="card-cola">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="font-coca-cola text-xl text-cola-dark-gray">
-                  {activity.title}
-                </h3>
-                <div className="flex flex-col items-end">
-                  <span className="bg-cola-red text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {activity.weight}
-                  </span>
-                  <span className="text-xs text-gray-500 mt-1">{activity.frequency}</span>
+        {activeTab !== 'interactive' && (
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            {evaluationActivities[activeTab].map((activity, index) => (
+              <div key={index} className="card-cola">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="font-coca-cola text-xl text-cola-dark-gray">
+                    {activity.title}
+                  </h3>
+                  <div className="flex flex-col items-end">
+                    <span className="bg-cola-red text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {activity.weight}
+                    </span>
+                    <span className="text-xs text-gray-500 mt-1">{activity.frequency}</span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {activity.description}
+                </p>
+                
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-cola-dark-gray">Criterios de Evaluación:</h4>
+                  <ul className="space-y-2">
+                    {activity.criteria.map((criterion, criterionIndex) => (
+                      <li key={criterionIndex} className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-cola-red rounded-full"></div>
+                        <span className="text-gray-600">{criterion}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {activity.description}
-              </p>
-              
-              <div className="space-y-3">
-                <h4 className="font-semibold text-cola-dark-gray">Criterios de Evaluación:</h4>
-                <ul className="space-y-2">
-                  {activity.criteria.map((criterion, criterionIndex) => (
-                    <li key={criterionIndex} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-cola-red rounded-full"></div>
-                      <span className="text-gray-600">{criterion}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+
+        {/* Interactive Quizzes Tab Content */}
+        {activeTab === 'interactive' && (
+          <QuizSection />
+        )}
 
         {/* Rubric Section */}
+        {activeTab !== 'interactive' && (
         <div className="card-cola bg-gradient-to-br from-cola-red to-cola-dark-red text-white">
           <h3 className="font-coca-cola text-2xl mb-6 text-center">
             RÚBRICA DE EVALUACIÓN - PROYECTO FINAL
@@ -210,6 +229,7 @@ const EvaluationStrategies = () => {
             </p>
           </div>
         </div>
+        )}
       </div>
     </section>
   )
