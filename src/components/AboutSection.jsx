@@ -1,6 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import GitHubProfile from './GitHubProfile'
+import { fetchGitHubStats } from '../api/github'
 
 const AboutSection = () => {
+  const [repoCount, setRepoCount] = useState(null);
+
+  useEffect(() => {
+    const loadRepoCount = async () => {
+      try {
+        const stats = await fetchGitHubStats();
+        if (stats && stats.profile && stats.profile.public_repos) {
+          // Redondear a la decena más cercana
+          const roundedCount = Math.floor(stats.profile.public_repos / 10) * 10;
+          setRepoCount(roundedCount);
+        }
+      } catch (error) {
+        console.error('Error loading repo count:', error);
+        setRepoCount(20); // Valor de respaldo
+      }
+    };
+
+    loadRepoCount();
+  }, []);
   return (
     <section id="sobre-mi" className="py-20 bg-white">
       <div className="section-container">
@@ -11,8 +32,10 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-cola-red mx-auto mb-8"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            
+            {/* Columna 1: Información Personal */}
             <div className="space-y-6">
               <div className="card-cola">
                 <h3 className="font-coca-cola text-2xl text-cola-dark-gray mb-4">
@@ -24,18 +47,20 @@ const AboutSection = () => {
                   y en compartir conocimiento a través de metodologías educativas efectivas.
                 </p>
                 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center p-4 bg-cola-light-gray rounded-lg">
-                    <div className="text-cola-red font-bold text-lg">3+</div>
-                    <div className="text-gray-600 text-sm">Años programando</div>
+                <div className="grid grid-cols-1 gap-3 mb-6">
+                  <div className="text-center p-4 bg-gradient-to-r from-cola-red to-cola-dark-red text-white rounded-lg">
+                    <div className="font-bold text-lg">5+</div>
+                    <div className="text-red-100 text-sm">Años programando</div>
                   </div>
-                  <div className="text-center p-4 bg-cola-light-gray rounded-lg">
-                    <div className="text-cola-red font-bold text-lg">10+</div>
-                    <div className="text-gray-600 text-sm">Proyectos desarrollados</div>
+                  <div className="text-center p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg">
+                    <div className="font-bold text-lg">
+                      {repoCount !== null ? `${repoCount}+` : 'Cargando...'}
+                    </div>
+                    <div className="text-blue-100 text-sm">Proyectos</div>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
                   <a 
                     href="https://github.com/aikerary" 
                     target="_blank" 
@@ -47,13 +72,16 @@ const AboutSection = () => {
                     </svg>
                     <span>@aikerary</span>
                   </a>
-                  <span className="text-gray-400">|</span>
-                  <span className="text-gray-600">KolaJS Repository</span>
                 </div>
               </div>
+
+
             </div>
 
+            {/* Columna 2: GitHub Profile y Formación */}
             <div className="space-y-6">
+              <GitHubProfile />
+              
               <div className="card-cola">
                 <h4 className="font-coca-cola text-xl text-cola-dark-gray mb-4">
                   ÁREA DE FORMACIÓN
@@ -66,34 +94,46 @@ const AboutSection = () => {
                   </p>
                 </div>
               </div>
+            </div>
 
-              <div className="card-cola">
-                <h4 className="font-coca-cola text-xl text-cola-dark-gray mb-4">
-                  ESPECIALIDADES
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-cola-light-gray p-3 rounded-lg text-center">
-                    <span className="text-sm font-medium text-cola-dark-gray">JavaScript</span>
-                  </div>
-                  <div className="bg-cola-light-gray p-3 rounded-lg text-center">
-                    <span className="text-sm font-medium text-cola-dark-gray">React</span>
-                  </div>
-                  <div className="bg-cola-light-gray p-3 rounded-lg text-center">
-                    <span className="text-sm font-medium text-cola-dark-gray">Node.js</span>
-                  </div>
-                  <div className="bg-cola-light-gray p-3 rounded-lg text-center">
-                    <span className="text-sm font-medium text-cola-dark-gray">Web Design</span>
-                  </div>
-                </div>
-              </div>
-
+            {/* Columna 3: Filosofía Educativa y Contacto */}
+            <div className="space-y-6">
               <div className="card-cola bg-gradient-to-br from-cola-red to-cola-dark-red text-white">
                 <h4 className="font-coca-cola text-xl mb-4">FILOSOFÍA EDUCATIVA</h4>
-                <p className="text-red-100 leading-relaxed">
+                <p className="text-red-100 leading-relaxed mb-6">
                   "Creo en el aprendizaje práctico y colaborativo. El conocimiento se consolida 
                   mejor cuando se comparte y se aplica en proyectos reales que resuelven 
                   problemas del mundo actual."
                 </p>
+                
+                <div className="border-t border-red-300 pt-4">
+                  <h5 className="font-bold text-red-100 mb-2">Enfoque Metodológico</h5>
+                  <ul className="text-red-100 text-sm space-y-1">
+                    <li>• Aprendizaje basado en proyectos</li>
+                    <li>• Desarrollo colaborativo</li>
+                    <li>• Soluciones tecnológicas innovadoras</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="card-cola">
+                <h4 className="font-coca-cola text-xl text-cola-dark-gray mb-4">
+                  CONTACTO
+                </h4>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-5 h-5 text-cola-red" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span className="text-gray-600 text-sm">aikera@uninorte.edu.co</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <svg className="w-5 h-5 text-cola-red" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span className="text-gray-600 text-sm">Colombia, Atlántico</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
